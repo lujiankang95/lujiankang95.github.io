@@ -155,38 +155,39 @@
     <article id="post-python学习历程" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/12/python学习历程/">python学习历程</a>
-    </h1>
-  
-
-        
-        <a href="/2019/01/12/python学习历程/" class="archive-article-date">
-  	<time datetime="2019-01-12T06:20:46.257Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-12</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#基本数据类型：</p>
-<p>##数字</p>
-<pre><code>1) 整型 int
-2) 浮点型 float
-3) 布尔型 bool
-    （1）在python中，空值会被认为是false
-    （2）bool(None) 也是false
-4) 复数 complex
-    （1）36j
-</code></pre><p>##组</p>
-<p>###1、序列<br>    1、列表 list []<br>    2、元组 tuple ()<br>        1）当一个括号里面只有一个元素的时候，编译器会以为是数学括号，返回该元素。<br>        2) 定义只有一个元素的元组 （1,）<br>        3) 定义一个空的元组())<br>    3、字符串 str<br>        1）单引号、双引号、三引号<br>            ‘’和”” 用于表示字符串<br>            “”” “”” 和’‘’ ‘’‘ 用于换行<br>        2) 转义字符<br>            （1）无法看见的字符 \n 换行 \t 制表符 \r 回车<br>            （2）与语言本身语法有冲突的字符 \’<br>            （3）字符串前置r，返回原始字符串<br>        3）字符串运算<br>            (1) “hello”+”hello” = hellohello<br>            (2) “hello”<em>3 = hellohellohello<br>            (3) “hello world”[0] = h<br>            (4) “hello world”[-1] = d<br>            (5) “hello world”[0:4] = hell<br>            (6) “hello world”[0:-1] = hello worl<br>            (7) “hello world”[:-1] = hello worl<br>            (8) “hello world”[-1:] = d<br>            (</em>) [负数] 负数表示步长，从后往回数<br>    4、序列的特点<br>        1）有序<br>        2）切片<br>        3）判断是否包含<br>            1) 3 in [1,2,3,4,5]<br>            2) 3 not in [1,2,3,4,5]<br>        4）判断序列长度<br>            len(“123 456”)<br>        5）求最值<br>            1）最大值：max([1,2,3,4,5,6]）<br>            2）最小值：min([1,2,3,4,5,6]）min（”hello world“）<br>        6）ord(“a”) 获取ascll码</p>
-<p>###2、集合 set<br>    1、无序<br>        1） {1,2,3}<br>    2、不重复<br>    3、常见操作<br>        1）len({1,2,3,4})<br>        2) 1 in {1,2,3,4}<br>        3) 1 not in {1,2,3,4}<br>        4) 求差集 {1,2,3,4,5,6} - {3,4} = {1,2,5,6}<br>        5) 求交集 {1,2,3,4,5,6} &amp; {3,4} = {3,4}<br>        6) 求并集 {1,2,3,4,5,6} | {3,4,7} = {1,2,3,4,5,6,7}<br>        7) 定义一个空的集合 set()</p>
-<p>###3、字典 dict<br>    1、由多个{key1:value1,key2:value2}组成<br>    2、无序（不是序列）<br>    3、根据key获取value {key1:value1,key2:value2}[key1]<br>    4、字典中不允许有相同的键存在，键相同，值覆盖.<br>    5、value的数据类型可以是但不限于：str int float list set dict<br>    6、key的数据类型必须是不可变的数据类型。 int str tuple<br>    7、定义一个空的字典 {}</p>
-<p>#变量<br>    值类型(int、str、tuple) 与 引用类型(list、set、dict)<br>    1) 查看值地址 id(变量)<br>    2）元组不可以被改变但是元组里面的list可以被改变</p>
-<p>#运算符<br>    1、算术运算符 + - <em> / // % **(平方)<br>    2、赋值运算符 = += -= </em>= /= //= %= **=<br>    3、比较（关系）运算符<br>    4、逻辑运算符 and（且) or(或) not(非)<br>    5、成员运算符 in 、not in<br>    6、身份运算符 is 、is not （身份根据地址判断）<br>        1）isinstance(a,int) 判断a是不是int型<br>        2）isinstance(a,(int,str)) 判断a是不是int或者str型<br>    7、位运算符(把数转换成二进制数计算) &amp;(与) |(或) ^(按位异或) ~(按位取反) &lt;&lt;(左移) &gt;&gt;(右移)  </p>
+        <hr>
+
+<h2 id="toc_0">title: python学习历程</h2>
+
+<h1 id="toc_1">基本数据类型：</h1>
+
+<h2 id="toc_2">数字</h2>
+
+<div><pre><code class="language-none">1) 整型 int<br>2) 浮点型 float<br>3) 布尔型 bool<br>    （1）在python中，空值会被认为是false<br>    （2）bool(None) 也是false<br>4) 复数 complex<br>    （1）36j</code></pre></div>
+
+<h2 id="toc_3">组</h2>
+
+<h3 id="toc_4">1、序列</h3>
+
+<div><pre><code class="language-none">1、列表 list []<br>2、元组 tuple ()<br>    1）当一个括号里面只有一个元素的时候，编译器会以为是数学括号，返回该元素。<br>    2) 定义只有一个元素的元组 （1,）<br>    3) 定义一个空的元组())<br>3、字符串 str<br>    1）单引号、双引号、三引号<br>        &#39;&#39;和&quot;&quot; 用于表示字符串<br>        &quot;&quot;&quot; &quot;&quot;&quot; 和’‘’ ‘’‘ 用于换行<br>    2) 转义字符<br>        （1）无法看见的字符 \n 换行 \t 制表符 \r 回车<br>        （2）与语言本身语法有冲突的字符 \&#39;<br>        （3）字符串前置r，返回原始字符串<br>    3）字符串运算<br>        (1) &quot;hello&quot;+&quot;hello&quot; = hellohello<br>        (2) &quot;hello&quot;<em>3 = hellohellohello<br>        (3) &quot;hello world&quot;[0] = h<br>        (4) &quot;hello world&quot;[-1] = d<br>        (5) &quot;hello world&quot;[0:4] = hell<br>        (6) &quot;hello world&quot;[0:-1] = hello worl<br>        (7) &quot;hello world&quot;[:-1] = hello worl<br>        (8) &quot;hello world&quot;[-1:] = d<br>        (</em>) [负数] 负数表示步长，从后往回数<br>4、序列的特点<br>    1）有序<br>    2）切片<br>    3）判断是否包含<br>        1) 3 in [1,2,3,4,5]<br>        2) 3 not in [1,2,3,4,5]<br>    4）判断序列长度<br>        len(&quot;123 456&quot;)<br>    5）求最值<br>        1）最大值：max([1,2,3,4,5,6]）<br>        2）最小值：min([1,2,3,4,5,6]）min（”hello world“）<br>    6）ord(&quot;a&quot;) 获取ascll码</code></pre></div>
+
+<h3 id="toc_5">2、集合 set</h3>
+
+<div><pre><code class="language-none">1、无序<br>    1） {1,2,3}<br>2、不重复<br>3、常见操作<br>    1）len({1,2,3,4})<br>    2) 1 in {1,2,3,4}<br>    3) 1 not in {1,2,3,4}<br>    4) 求差集 {1,2,3,4,5,6} - {3,4} = {1,2,5,6}<br>    5) 求交集 {1,2,3,4,5,6} &amp; {3,4} = {3,4}<br>    6) 求并集 {1,2,3,4,5,6} | {3,4,7} = {1,2,3,4,5,6,7}<br>    7) 定义一个空的集合 set()</code></pre></div>
+
+<h3 id="toc_6">3、字典 dict</h3>
+
+<div><pre><code class="language-none">1、由多个{key1:value1,key2:value2}组成<br>2、无序（不是序列）<br>3、根据key获取value {key1:value1,key2:value2}[key1]<br>4、字典中不允许有相同的键存在，键相同，值覆盖.<br>5、value的数据类型可以是但不限于：str int float list set dict<br>6、key的数据类型必须是不可变的数据类型。 int str tuple<br>7、定义一个空的字典 {}</code></pre></div>
+
+<h1 id="toc_7">变量</h1>
+
+<div><pre><code class="language-none">值类型(int、str、tuple) 与 引用类型(list、set、dict)<br>1) 查看值地址 id(变量)<br>2）元组不可以被改变但是元组里面的list可以被改变</code></pre></div>
+
+<h1 id="toc_8">运算符</h1>
+
+<div><pre><code class="language-none">1、算术运算符 + - <em> / // % **(平方)<br>2、赋值运算符 = += -= </em>= /= //= %= **=<br>3、比较（关系）运算符<br>4、逻辑运算符 and（且) or(或) not(非)<br>5、成员运算符 in 、not in<br>6、身份运算符 is 、is not （身份根据地址判断）<br>    1）isinstance(a,int) 判断a是不是int型<br>    2）isinstance(a,(int,str)) 判断a是不是int或者str型<br>7、位运算符(把数转换成二进制数计算) &amp;(与) |(或) ^(按位异或) ~(按位取反) &lt;&lt;(左移) &gt;&gt;(右移)  </code></pre></div>
 
       
 
