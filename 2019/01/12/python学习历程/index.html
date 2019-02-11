@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="python,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wulike.JPG?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="基本数据类型：  数字  1) 整型 int2) 浮点型 float3) 布尔型 bool    （1）在python中，空值会被认为是false    （2）bool(None) 也是false4) 复数 complex    （1）36j">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python学习历程">
+<meta property="og:url" content="http://yoursite.com/2019/01/12/python学习历程/index.html">
+<meta property="og:site_name" content="慢~慢">
+<meta property="og:description" content="基本数据类型：  数字  1) 整型 int2) 浮点型 float3) 布尔型 bool    （1）在python中，空值会被认为是false    （2）bool(None) 也是false4) 复数 complex    （1）36j">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-02-11T06:32:11.011Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python学习历程">
+<meta name="twitter:description" content="基本数据类型：  数字  1) 整型 int2) 浮点型 float3) 布尔型 bool    （1）在python中，空值会被认为是false    （2）bool(None) 也是false4) 复数 complex    （1）36j">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/12/python学习历程/">
+
+
+
+
+
+  <title>python学习历程 | 慢~慢</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慢~慢</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/python学习历程/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乱石怪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慢~慢">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python学习历程</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-12T14:20:46+08:00">
+                2019-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+
+<h1 id="toc_1">基本数据类型：</h1>
+
+<h2 id="toc_2">数字</h2>
+
+<div><pre><code class="language-none">1) 整型 int<br>2) 浮点型 float<br>3) 布尔型 bool<br>    （1）在python中，空值会被认为是false<br>    （2）bool(None) 也是false<br>4) 复数 complex<br>    （1）36j</code></pre></div><br><a id="more"></a><br><h2 id="toc_3">组</h2><br><h3 id="toc_4">1、序列</h3><br><div><pre><code class="language-none">1、列表 list []<br>2、元组 tuple ()<br>    1）当一个括号里面只有一个元素的时候，编译器会以为是数学括号，返回该元素。<br>    2) 定义只有一个元素的元组 （1,）<br>    3) 定义一个空的元组())<br>3、字符串 str<br>    1）单引号、双引号、三引号<br>        &#39;&#39;和&quot;&quot; 用于表示字符串<br>        &quot;&quot;&quot; &quot;&quot;&quot; 和’‘’ ‘’‘ 用于换行<br>    2) 转义字符<br>        （1）无法看见的字符 \n 换行 \t 制表符 \r 回车<br>        （2）与语言本身语法有冲突的字符 \&#39;<br>        （3）字符串前置r，返回原始字符串<br>    3）字符串运算<br>        (1) &quot;hello&quot;+&quot;hello&quot; = hellohello<br>        (2) &quot;hello&quot;<em>3 = hellohellohello<br>        (3) &quot;hello world&quot;[0] = h<br>        (4) &quot;hello world&quot;[-1] = d<br>        (5) &quot;hello world&quot;[0:4] = hell<br>        (6) &quot;hello world&quot;[0:-1] = hello worl<br>        (7) &quot;hello world&quot;[:-1] = hello worl<br>        (8) &quot;hello world&quot;[-1:] = d<br>        (</em>) [负数] 负数表示步长，从后往回数<br>4、序列的特点<br>    1）有序<br>    2）切片<br>    3）判断是否包含<br>        1) 3 in [1,2,3,4,5]<br>        2) 3 not in [1,2,3,4,5]<br>    4）判断序列长度<br>        len(&quot;123 456&quot;)<br>    5）求最值<br>        1）最大值：max([1,2,3,4,5,6]）<br>        2）最小值：min([1,2,3,4,5,6]）min（”hello world“）<br>    6）ord(&quot;a&quot;) 获取ascll码</code></pre></div><br><h3 id="toc_5">2、集合 set</h3><br><div><pre><code class="language-none">1、无序<br>    1） {1,2,3}<br>2、不重复<br>3、常见操作<br>    1）len({1,2,3,4})<br>    2) 1 in {1,2,3,4}<br>    3) 1 not in {1,2,3,4}<br>    4) 求差集 {1,2,3,4,5,6} - {3,4} = {1,2,5,6}<br>    5) 求交集 {1,2,3,4,5,6} &amp; {3,4} = {3,4}<br>    6) 求并集 {1,2,3,4,5,6} | {3,4,7} = {1,2,3,4,5,6,7}<br>    7) 定义一个空的集合 set()</code></pre></div>
+
+<h3 id="toc_6">3、字典 dict</h3>
+
+<div><pre><code class="language-none">1、由多个{key1:value1,key2:value2}组成<br>2、无序（不是序列）<br>3、根据key获取value {key1:value1,key2:value2}[key1]<br>4、字典中不允许有相同的键存在，键相同，值覆盖.<br>5、value的数据类型可以是但不限于：str int float list set dict<br>6、key的数据类型必须是不可变的数据类型。 int str tuple<br>7、定义一个空的字典 {}</code></pre></div>
+
+<h1 id="toc_7">变量</h1>
+
+<div><pre><code class="language-none">值类型(int、str、tuple) 与 引用类型(list、set、dict)<br>1) 查看值地址 id(变量)<br>2）元组不可以被改变但是元组里面的list可以被改变</code></pre></div>
+
+<h1 id="toc_8">运算符</h1>
+
+<div><pre><code class="language-none">1、算术运算符 + - <em> / // % **(平方)<br>2、赋值运算符 = += -= </em>= /= //= %= **=<br>3、比较（关系）运算符<br>4、逻辑运算符 and（且) or(或) not(非)<br>5、成员运算符 in 、not in<br>6、身份运算符 is 、is not （身份根据地址判断）<br>    1）isinstance(a,int) 判断a是不是int型<br>    2）isinstance(a,(int,str)) 判断a是不是int或者str型<br>7、位运算符(把数转换成二进制数计算) &amp;(与) |(或) ^(按位异或) ~(按位取反) &lt;&lt;(左移) &gt;&gt;(右移)  </code></pre></div>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/31/调优之并行度/" rel="prev" title="调优之并行度">
+                调优之并行度 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="乱石怪">
+          <p class="site-author-name" itemprop="name">乱石怪</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#toc_1"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#toc_2"><span class="nav-number">1.1.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#toc_3"><span class="nav-number">1.2.</span> <span class="nav-text">组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#toc_4"><span class="nav-number">1.2.1.</span> <span class="nav-text">1、序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toc_5"><span class="nav-number">1.2.2.</span> <span class="nav-text">2、集合 set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#toc_6"><span class="nav-number">1.2.3.</span> <span class="nav-text">3、字典 dict</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#toc_7"><span class="nav-number">2.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#toc_8"><span class="nav-number">3.</span> <span class="nav-text">运算符</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乱石怪</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
