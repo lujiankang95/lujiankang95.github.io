@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="scala,">
 
 
 
@@ -94,13 +94,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="慢~慢">
-<meta property="og:url" content="http://yoursite.com/tags/python/index.html">
+<meta name="description" content="什么是柯里化?柯里化是指将原来接收两个参数的函数变成接收一个参数的函数的过程，新的函数返回一个以原有第二个参数作为参数的函数 柯里化的意义  curry化最大的意义在于把多个参数的function等价转化成多个单参数function的级联，这样所有的函数就都统一了，方便做lambda演算。 在scala里，curry化对类型推演也有帮助，scala的类型推演是局部的，在同一个参数列表中后面的参">
+<meta name="keywords" content="scala">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scala-柯里化">
+<meta property="og:url" content="http://yoursite.com/2019/02/11/scala-柯里化/index.html">
 <meta property="og:site_name" content="慢~慢">
+<meta property="og:description" content="什么是柯里化?柯里化是指将原来接收两个参数的函数变成接收一个参数的函数的过程，新的函数返回一个以原有第二个参数作为参数的函数 柯里化的意义  curry化最大的意义在于把多个参数的function等价转化成多个单参数function的级联，这样所有的函数就都统一了，方便做lambda演算。 在scala里，curry化对类型推演也有帮助，scala的类型推演是局部的，在同一个参数列表中后面的参">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1g02j64gg1wj30ga0aowf7.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNc79ly1g02jdlxz26j30k20lydia.jpg">
+<meta property="og:updated_time" content="2019-02-11T08:16:32.719Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="慢~慢">
+<meta name="twitter:title" content="scala-柯里化">
+<meta name="twitter:description" content="什么是柯里化?柯里化是指将原来接收两个参数的函数变成接收一个参数的函数的过程，新的函数返回一个以原有第二个参数作为参数的函数 柯里化的意义  curry化最大的意义在于把多个参数的function等价转化成多个单参数function的级联，这样所有的函数就都统一了，方便做lambda演算。 在scala里，curry化对类型推演也有帮助，scala的类型推演是局部的，在同一个参数列表中后面的参">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNc79ly1g02j64gg1wj30ga0aowf7.jpg">
 
 
 
@@ -129,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/python/">
+  <link rel="canonical" href="http://yoursite.com/2019/02/11/scala-柯里化/">
 
 
 
 
 
-  <title>Tag: python | 慢~慢</title>
+  <title>scala-柯里化 | 慢~慢</title>
   
 
 
@@ -160,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -244,52 +252,153 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>python<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/11/scala-柯里化/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乱石怪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慢~慢">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/01/12/python学习历程/" itemprop="url">
-              
-                <span itemprop="name">python学习历程</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">scala-柯里化</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-12T14:20:46+08:00" content="2019-01-12">
-          01-12
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-11T14:41:45+08:00">
+                2019-02-11
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+
+<p></p><h3>什么是柯里化?</h3><br>柯里化是指将原来接收两个参数的函数变成接收一个参数的函数的过程，新的函数返回一个以原有第二个参数作为参数的函数<img src="https://ws4.sinaimg.cn/large/006tNc79ly1g02j64gg1wj30ga0aowf7.jpg" alt=""><p></p>
+<p></p><h3>柯里化的意义</h3><p></p>
+<blockquote>
+<p>curry化最大的意义在于把多个参数的function等价转化成多个单参数function的级联，这样所有的函数就都统一了，方便做lambda演算。 在scala里，curry化对类型推演也有帮助，scala的类型推演是局部的，在同一个参数列表中后面的参数不能借助前面的参数类型进行推演，curry化以后，放在两个参数列表里，后面一个参数列表里的参数可以借助前面一个参数列表里的参数类型进行推演。这就是为什么 foldLeft这种函数的定义都是curry的形式<img src="https://ws3.sinaimg.cn/large/006tNc79ly1g02jdlxz26j30k20lydia.jpg" alt=""></p>
+</blockquote>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scala/" rel="tag"># scala</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/31/调优之并行度/" rel="next" title="调优之并行度">
+                <i class="fa fa-chevron-left"></i> 调优之并行度
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -297,6 +406,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -317,8 +430,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="乱石怪">
           <p class="site-author-name" itemprop="name">乱石怪</p>
@@ -378,6 +500,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">什么是柯里化?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">柯里化的意义</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -498,10 +636,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
