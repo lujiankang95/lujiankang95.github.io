@@ -94,13 +94,17 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，">
+<meta property="og:type" content="article">
 <meta property="og:title" content="这是一把刀">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/01/31/调优之并行度/index.html">
 <meta property="og:site_name" content="这是一把刀">
+<meta property="og:description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-31T07:31:27.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="这是一把刀">
+<meta name="twitter:description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，">
 
 
 
@@ -129,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/31/调优之并行度/">
 
 
 
 
 
-  <title>Archive | 这是一把刀</title>
+  <title> | 这是一把刀</title>
   
 
 
@@ -160,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -244,142 +248,159 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/31/调优之并行度/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乱石怪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="这是一把刀">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline"></h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-31T15:30:36+08:00">
+                2019-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 3 posts in total. Keep on posting.
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2019">2019</h2>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/31/调优之并行度/" itemprop="url">
-              
-                <span itemprop="name">Untitled</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-31T15:30:36+08:00" content="2019-01-31">
-          01-31
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/12/python学习历程/" itemprop="url">
-              
-                <span itemprop="name">python学习历程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-12T14:20:46+08:00" content="2019-01-12">
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/12/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-12T09:20:10+08:00" content="2019-01-12">
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>#spark 调优之并行度<br>什么是并行度？</p>
+<blockquote>
+<p>spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。</p>
+</blockquote>
+<blockquote>
+<p>例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，倘若task默认是100个，那么每个executor并行运行2个task，每个executor就会有一个core被浪费。故我们应该调节并行度，使之与资源相匹配。</p>
+</blockquote>
+<p>如何调节并行度？</p>
+<blockquote>
+<ol>
+<li>task数量,官方推荐设置为总cpu core的2~3倍。</li>
+<li>spark.defalut.parallelism   默认是没有值的，如果设置了值比如说10，是在shuffle的过程才会起作用（val rdd2 = rdd1.reduceByKey(_+_) //rdd2的分区数就是10，rdd1的分区数不受这个参数的影响）<br>new SparkConf().set(“spark.defalut.parallelism”,”500“)</li>
+<li>如果读取的数据在HDFS上，增加block数，默认情况下split与block是一对一的，而split又与RDD中的partition对应，所以增加了block数，也就提高了并行度。</li>
+<li>RDD.repartition，给RDD重新设置partition的数量</li>
+<li>reduceByKey的算子指定partition的数量<br>val rdd2 = rdd1.reduceByKey(_+<em>,10)<br>val rdd3 = rdd2.map.filter.reduceByKey(</em>+_)</li>
+<li>val rdd3 = rdd1.join（rdd2）  rdd3里面partiiton的数量是由父RDD中最多的partition数量来决定，因此使用join算子的时候，增加父RDD中partition的数量。</li>
+<li>spark.sql.shuffle.partitions //spark sql中shuffle过程中partitions的数量</li>
+</ol>
+</blockquote>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/12/python学习历程/" rel="next" title="python学习历程">
+                <i class="fa fa-chevron-left"></i> python学习历程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -387,6 +408,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -588,11 +613,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
