@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="spark,">
 
 
 
@@ -87,24 +87,25 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/wulike.JPG?v=5.1.2">
 
 
 
 
 
 
-<meta name="description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，">
+<meta name="description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task">
+<meta name="keywords" content="spark">
 <meta property="og:type" content="article">
-<meta property="og:title" content="这是一把刀">
+<meta property="og:title" content="调优之并行度">
 <meta property="og:url" content="http://yoursite.com/2019/01/31/调优之并行度/index.html">
-<meta property="og:site_name" content="这是一把刀">
-<meta property="og:description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，">
+<meta property="og:site_name" content="慢~慢">
+<meta property="og:description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-31T07:31:27.500Z">
+<meta property="og:updated_time" content="2019-02-11T06:32:36.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="这是一把刀">
-<meta name="twitter:description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，">
+<meta name="twitter:title" content="调优之并行度">
+<meta name="twitter:description" content="#spark 调优之并行度什么是并行度？  spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。   例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task">
 
 
 
@@ -139,7 +140,7 @@
 
 
 
-  <title> | 这是一把刀</title>
+  <title>调优之并行度 | 慢~慢</title>
   
 
 
@@ -175,7 +176,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">这是一把刀</span>
+        <span class="site-title">慢~慢</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -271,7 +272,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="这是一把刀">
+      <meta itemprop="name" content="慢~慢">
     </span>
 
     
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">调优之并行度</h1>
         
 
         <div class="post-meta">
@@ -301,6 +302,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/spark/" itemprop="url" rel="index">
+                    <span itemprop="name">spark</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -329,12 +352,13 @@
       
 
       
-        <p>#spark 调优之并行度<br>什么是并行度？</p>
+        <p><hr></p>
+<p>#spark 调优之并行度<br>什么是并行度？</p>
 <blockquote>
 <p>spark作业中，各个stage的task的数量，就表示了各个阶段stage的并行度！调节并行度的主要目的是充分的利用集群资源，减少每个task的数据量，避免因某个task数据量过大，而导致作业时间整体变长。</p>
 </blockquote>
 <blockquote>
-<p>例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，倘若task默认是100个，那么每个executor并行运行2个task，每个executor就会有一个core被浪费。故我们应该调节并行度，使之与资源相匹配。</p>
+<p>例如：作业共分配了50个executor，每个executor有3个core，总共150个core，也就是说一次能够并行运行150个task，倘若task默认是100个，那么每个executor并行运行2个task，每个executor就会有一个core被浪费。故我们应该调节并行度，使之与资源相匹配。<br><a id="more"></a></p>
 </blockquote>
 <p>如何调节并行度？</p>
 <blockquote>
@@ -362,6 +386,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spark/" rel="tag"># spark</a>
+          
+        </div>
       
 
       
@@ -446,7 +476,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -457,7 +487,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">categories</span>
               
             </div>
@@ -468,7 +498,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               
             </div>
