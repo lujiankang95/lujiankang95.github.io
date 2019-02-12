@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="spark,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/wulike.JPG?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="Yarn Applcation 的执行流程">
+<meta name="keywords" content="spark">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spark中的driver">
+<meta property="og:url" content="http://yoursite.com/2019/02/12/spark中的driver/index.html">
+<meta property="og:site_name" content="慢~慢">
+<meta property="og:description" content="Yarn Applcation 的执行流程">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1g03j1ctrirj30m50ewjtn.jpg">
+<meta property="og:updated_time" content="2019-02-12T05:24:50.746Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spark中的driver">
+<meta name="twitter:description" content="Yarn Applcation 的执行流程">
+<meta name="twitter:image" content="https://ws2.sinaimg.cn/large/006tNc79ly1g03j1ctrirj30m50ewjtn.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/12/spark中的driver/">
+
+
+
+
+
+  <title>spark中的driver | 慢~慢</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">慢~慢</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            menu.首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-类别">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            menu.类别
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            menu.标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-存档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            menu.存档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            menu.关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/12/spark中的driver/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="乱石怪">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="慢~慢">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">spark中的driver</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-12T12:26:08+08:00">
+                2019-02-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+
+<h3 id="Yarn-Applcation-的执行流程"><a href="#Yarn-Applcation-的执行流程" class="headerlink" title="Yarn Applcation 的执行流程"></a>Yarn Applcation 的执行流程</h3><p><img src="https://ws2.sinaimg.cn/large/006tNc79ly1g03j1ctrirj30m50ewjtn.jpg" width="1300" hegiht="auto" align="center"><br><a id="more"></a></p>
+<pre><code>1.客户端提交作业到RM。
+2.RM在调度器中创建一个新的AppAttempt，维护该作业的信息。
+3.NM1向RM发送心跳，RM把ApplicationMaster分配到该NM1。
+4.RM通过RPC调用NM1的startcontainer方法。
+5.NM1启动AM。
+6.AM启动后向RM注册，并向RM请求资源。
+7.RM在调度器中维护AM所需的资源(task)container1、container2等。
+8.NM2向RM发送心跳，请求资源。
+9.RM向NM2分配相应的资源container1。
+10.AM向RM发送心跳，RM告诉AM已经分配的container
+11.AM通过RPC调用NM2的startcontainer方法。
+12.NM2启动container1。
+13.Container1启动后向AM汇报进度。
+14.Container1结束后NM通过心跳通知RM。
+15.AM向RM发送心跳，RM告诉AM相应的container1已经结束（也可以实现container直接告诉AM已经成功结束）。
+16.当AM的所有Task已经结束，AM向RM汇报自己的结束状态。
+</code></pre><h3 id="spark的组件"><a href="#spark的组件" class="headerlink" title="spark的组件"></a>spark的组件</h3><p>spark的组件可以分为四个部分：driver、cluster manager、worker、executor</p>
+<p>根据cluster manager的不同，spark分为四种不同的运行模式，standalone、local cluster、spark on yarn 和 spark on mesos</p>
+<h3 id="driver"><a href="#driver" class="headerlink" title="driver"></a>driver</h3><p>用户提交的程序运行起来就是一个driver，他是一个特殊的excutor进程，这个进程除了一般excutor都具有的运行环境外，这个进程里面运行着DAGScheduler、TaskSheduler、SchedulerBackend等组件。</p>
+<h3 id="driver的作用"><a href="#driver的作用" class="headerlink" title="driver的作用"></a>driver的作用</h3><pre><code>1、运行应用程序的main函数
+2、创建spark的上下文
+3、划分RDD并生成有向无环图（DAGScheduler）
+4、与spark中的其他组进行协调、协调资源等等（SchedulerBackend）
+5、生成并发送task到executor（TaskSheduler）
+</code></pre><h3 id="driver的运行位置（yarn模式下）"><a href="#driver的运行位置（yarn模式下）" class="headerlink" title="driver的运行位置（yarn模式下）"></a>driver的运行位置（yarn模式下）</h3><p>官网上说：<font color="blue">There are two deploy modes that can be used to launch Spark application on Yarn.In cluster mode,the Spark driver run inside an application master process.And in the client mode,the driver runs in the client process.</font></p>
+<p><font color="red">yarn-cluster模式下</font>，client将用户程序提交到到spark集群中就与spark集群断开联系了，此时client将不会发挥其他任何作用，仅仅负责提交。在此模式下。AM和driver是同一个东西，但官网上给的是driver运行在AM里，可以理解为AM包括了driver的功能就像Driver运行在AM里一样，此时的AM既能够向RM申请资源并进行分配，又能完成driver划分RDD提交task等工作</p>
+<p><font color="red">yarn-client模式下</font>，Driver运行在客户端上，先有driver再用AM，此时driver负责RDD生成、task生成和分发，向AM申请资源等 ,AM负责向RM申请资源，其他的都由driver来完成</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>yarn-Cluster模式：driver运行在AM里，这个AM既完成划分RDD生成有向无环图、提交task等任务也负责管理与这个application运行有关的executor</p>
+<p>yarn-Client模式：由AM负责管理excutor其余的由driver完成</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spark/" rel="tag"># spark</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/11/scala-柯里化/" rel="next" title="scala-柯里化">
+                <i class="fa fa-chevron-left"></i> scala-柯里化
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="乱石怪">
+          <p class="site-author-name" itemprop="name">乱石怪</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Yarn-Applcation-的执行流程"><span class="nav-number">1.</span> <span class="nav-text">Yarn Applcation 的执行流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spark的组件"><span class="nav-number">2.</span> <span class="nav-text">spark的组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#driver"><span class="nav-number">3.</span> <span class="nav-text">driver</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#driver的作用"><span class="nav-number">4.</span> <span class="nav-text">driver的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#driver的运行位置（yarn模式下）"><span class="nav-number">5.</span> <span class="nav-text">driver的运行位置（yarn模式下）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">乱石怪</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
