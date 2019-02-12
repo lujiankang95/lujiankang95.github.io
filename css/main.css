@@ -1114,9 +1114,10 @@ pre .javascript .function {
   background: $brand-bg;*/
   color: #787280;
   border-bottom: none;
+/*&:hover { color: $brand-hover-color; }*/
 }
 .brand:hover {
-  color: #fff;
+  color: #787280;
 }
 .logo {
   display: inline-block;
@@ -1827,7 +1828,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff9f;
+  background: #ff203c;
 }
 .links-of-blogroll {
   font-size: 13px;
